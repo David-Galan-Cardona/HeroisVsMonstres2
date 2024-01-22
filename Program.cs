@@ -10,12 +10,13 @@ namespace M03UF2PR1
         public static void Main()
         {
             const string Play = "Què vols fer? \n1. Iniciar una nova batalla\n0. Sortir", Despedida = "Fins aviat", Difficulty = "Selecciona una dificultat \n1. Fàcil\n2. Difícil\n3. Personalitzat\n4. Aleatori",
-               MONSTER = "el monstre", IntroNames = "Introdueix 4 noms separats per comes:\nArquera, Bàrbar, Maga, Druida", INTROHP = "Introdueix la vida de {0} en un valor de {1}-{2}",
-               INTROATK = "Introdueix l'atac de {0} en un valor de {1}-{2}", INTRODEF = "Introdueix la defensa de {0} en un valor de {1}-{2}%",
-               INTROHPMONSTER = "Introdueix la vida del monstre en un valor de 7000-10000", INTROATKMONSTER = "Introdueix l'atac del monstre en un valor de 300-400",
-               INTRODEFMONSTER = "Introdueix la defensa del monstre en un valor de 20-30%", INPUTBATTLE = "Què vol {0} fer? \n1. Atacar\n2. Defensar-se\n3. Habilitat especial",
-               LOOSETURN = "{0} ha perdut el torn", SPECIALABILITY = "{0} utilitza la seva habilitat especial", CD = "La habilitat de {0} es podrà utilitzar en {1} torns",
-               DEADPARTYMEMBER = "{0} jau al terra", BARBINMUNE = "El bàrbar no rep cap mal", MONSTERSTUNNED = "El monstre està atordit per la fletxa",  ATKMONSTER = "El monstre exhala una flamarada";
+                MONSTER = "el monstre", IntroNames = "Introdueix 4 noms separats per comes:\nArquera, Bàrbar, Maga, Druida", INTROHP = "Introdueix la vida de {0} en un valor de {1}-{2}",
+                INTROATK = "Introdueix l'atac de {0} en un valor de {1}-{2}", INTRODEF = "Introdueix la defensa de {0} en un valor de {1}-{2}%",
+                INTROHPMONSTER = "Introdueix la vida del monstre en un valor de 7000-10000", INTROATKMONSTER = "Introdueix l'atac del monstre en un valor de 300-400",
+                INTRODEFMONSTER = "Introdueix la defensa del monstre en un valor de 20-30%", INPUTBATTLE = "Què vol {0} fer? \n1. Atacar\n2. Defensar-se\n3. Habilitat especial",
+                LOOSETURN = "{0} ha perdut el torn", SPECIALABILITY="{0} utilitza la seva habilitat especial", CD="La habilitat de {0} es podrà utilitzar en {1} torns",
+                DEADPARTYMEMBER = "{0} jau al terra", BARBINMUNE="El bàrbar no rep cap mal", MONSTERSTUNNED="El monstre està atordit per la fletxa", HP="{0} té {1} punts de vida", 
+                DEADMONSTER = "El monstre ha sigut vençut", WINMONSTER = "El monstre ha aniquilat a tots els herois", ATKMONSTER="El monstre exhala una flamarada", RIP = "Descansa en pau {0}";
 
             const int HEALDRUID = 500, MINHPARCHER = 1500, MAXHPARCHER = 2000, MINATKARCHER = 200, MAXATKARCHER = 300, MINDEFARCHER = 25, MAXDEFARCHER = 35, MINHPBARBARIAN = 3000,
                MAXHPBARBARIAN = 3750, MINATKBARBARIAN = 150, MAXATKBARBARIAN = 250,
@@ -25,14 +26,14 @@ namespace M03UF2PR1
             double hpArcher = 0, storedArcher = 0, atkArcher = 0, defArcher = 0, hpBarbarian = 0, storedBarbarian = 0, atkBarbarian = 0, defBarbarian = 0,
             hpSorceress = 0, storedSorceress = 0, atkSorceress = 0, defSorceress = 0, hpDruid = 0, storedDruid = 0, atkDruid = 0, defDruid = 0,
             hpMonster = 0, atkMonster = 0, defMonster = 0, battleResult;
-            int play, difficulty, cdArcher = 0, cdBarbarian = 0, cdSorceress = 0, cdDruid = 0, errors = 0, fightChoice = 0;
+            int play, difficulty, cdArcher = 0, cdBarbarian = 0, cdSorceress = 0, cdDruid = 0, errors = 0, fightChoice=0;
             string names, nameArcher, nameBarbarian, nameSorceress, nameDruid;
             bool archerDef = false, barbarianDef = false, sorceressDef = false, druidDef = false;
             Random rand = new Random();
             int[] orderTurns = new int[4];
-            double[] hpHeroes = new double[4] { 0, 0, 0, 0 };
+            double[] hpHeroes = new double[4] {0, 0, 0, 0};
 
-
+            
             Console.WriteLine(Play);
             play = Convert.ToInt32(Console.ReadLine());
             while ((play != 0 && play != 1) || errors == 3)
@@ -273,7 +274,7 @@ namespace M03UF2PR1
                     {
                         if (errors == 3)
                         {
-                            hpMonster = MAXHPMONSTER; //Si falla, es més perjudicial que tingui estadística màxim en comptes de mínim
+                            hpMonster = MAXHPMONSTER; //Si l'usuari s'equivoca, es més perjudicial que tingui estadística màxima en comptes de mínima
                         }
                         else
                         {
@@ -311,6 +312,9 @@ namespace M03UF2PR1
                         errors++;
                     }
                     errors = 0;
+
+
+
                 }
                 else if (difficulty == 4)
                 {
@@ -332,7 +336,7 @@ namespace M03UF2PR1
                     defMonster = rand.Next(MINDEFMONSTER, MAXDEFMONSTER - 1);
                     defSorceress = rand.Next(MINDEFSORCERESS, MAXDEFSORCERESS - 1);
                 }
-                storedArcher = hpArcher;
+                storedArcher = hpArcher; //Guardem aquestes variables per a fer que el druida no curi més de la vida màxima dels herois
                 storedBarbarian = hpBarbarian;
                 storedDruid = hpDruid;
                 storedSorceress = hpSorceress;
@@ -347,7 +351,7 @@ namespace M03UF2PR1
                         {
                             if (hpMonster != 0)
                             {
-                                if (hpArcher <= 0)
+                                if(hpArcher <= 0)
                                 {
                                     Console.WriteLine(DEADPARTYMEMBER, nameArcher);
                                 }
@@ -358,8 +362,7 @@ namespace M03UF2PR1
                                         cdArcher--;
                                     }
                                     archerDef = false;
-                                    do
-                                    {
+                                    do {
                                         Console.WriteLine(INPUTBATTLE, nameArcher);
                                         fightChoice = Convert.ToInt32(Console.ReadLine());
                                         while (fightChoice < 0 || fightChoice > 3 && errors < 2)
@@ -405,7 +408,7 @@ namespace M03UF2PR1
                                     } while (fightChoice == 3 && cdArcher < 5 && cdArcher != 0);
                                     errors = 0;
                                 }
-
+                                
                             }
                         }
                         if (orderTurns[i] == 2)
@@ -423,8 +426,7 @@ namespace M03UF2PR1
                                         cdBarbarian--;
                                     }
                                     barbarianDef = false;
-                                    do
-                                    {
+                                    do {
                                         Console.WriteLine(INPUTBATTLE, nameBarbarian);
                                         fightChoice = Convert.ToInt32(Console.ReadLine());
                                         while (fightChoice < 0 || fightChoice > 3 && errors < 2)
@@ -487,8 +489,7 @@ namespace M03UF2PR1
                                         cdSorceress--;
                                     }
                                     sorceressDef = false;
-                                    do
-                                    {
+                                    do {
                                         Console.WriteLine(INPUTBATTLE, nameSorceress);
                                         fightChoice = Convert.ToInt32(Console.ReadLine());
                                         while (fightChoice < 0 || fightChoice > 3 && errors < 2)
@@ -532,8 +533,8 @@ namespace M03UF2PR1
                                             }
 
                                         }
-                                    } while (fightChoice == 3 && cdSorceress < 5 && cdSorceress != 0);
-                                    errors = 0;
+                                    } while (fightChoice == 3 && cdSorceress < 5 && cdSorceress != 0) ;
+                                errors = 0;
                                 }
 
                             }
@@ -600,7 +601,7 @@ namespace M03UF2PR1
                                             }
 
                                         }
-                                    } while (fightChoice == 3 && cdDruid < 5 && cdDruid != 0);
+                                    } while (fightChoice == 3 && cdDruid < 5 && cdDruid!=0);
                                     errors = 0;
                                 }
 
@@ -626,13 +627,73 @@ namespace M03UF2PR1
                     {
                         Console.WriteLine(MONSTERSTUNNED);
                     }
-                    
+                    hpHeroes[0] = hpArcher; //Això ens reinicia l'array per a poder mostrar les vides dels herois en ordre
+                    hpHeroes[1] = hpBarbarian;
+                    hpHeroes[2] = hpSorceress;
+                    hpHeroes[3] = hpDruid;
+                    hpHeroes = HeroisVsMonstreLibrary.SortArray(hpHeroes);
+                    for (int i = 0; i < hpHeroes.Length; i++)
+                    {
+                        if (hpHeroes[i] == hpArcher)
+                        {
+                            Console.WriteLine(HP, nameArcher, hpArcher);
+                            hpHeroes[i] = 0;
+                        }
+                        else if (hpHeroes[i] == hpBarbarian)
+                        {
+                            Console.WriteLine(HP, nameBarbarian, hpBarbarian);
+                            hpHeroes[i] = 0;
+                        }
+                        else if (hpHeroes[i] == hpSorceress)
+                        {
+                            Console.WriteLine(HP, nameSorceress, hpSorceress);
+                            hpHeroes[i] = 0;
+                        }
+                        else if (hpHeroes[i] == hpDruid)
+                        {
+                            Console.WriteLine(HP, nameDruid, hpDruid);
+                            hpHeroes[i] = 0;
+                        }
+                    }
+                }
+                if (hpMonster == 0)
+                {
+                    Console.WriteLine(DEADMONSTER);
+                }
+                else Console.WriteLine(WINMONSTER);
+
+                if (hpArcher == 0)
+                {
+                    Console.WriteLine(RIP, nameArcher);
+                }
+                if (hpBarbarian == 0)
+                {
+                    Console.WriteLine(RIP, nameBarbarian);
+                }
+                if (hpSorceress == 0)
+                {
+                    Console.WriteLine(RIP, nameSorceress);
+                }
+                if (hpDruid == 0)
+                {
+                    Console.WriteLine(RIP, nameDruid);
+                }
+
+                errors = 0;
+                Console.WriteLine(Play);
+                play = Convert.ToInt32(Console.ReadLine());
+                while ((play != 0 && play != 1) || errors == 3)
+                {
+                    errors++;
+                    Console.WriteLine(Play);
+                    play = Convert.ToInt32(Console.ReadLine());
                 }
             }
             else
             {
                 Console.WriteLine(Despedida);
             }
+        
         }
     }
 }

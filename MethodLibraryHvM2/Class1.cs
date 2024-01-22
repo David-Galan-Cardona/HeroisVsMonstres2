@@ -29,7 +29,7 @@
                 return false;
             }
         }
-        public static string CheckForCommas(string names, int num)
+        public static string CheckForCommas(string names, int num) //Això separa els noms dels herois segons les comes
         {
             int commas = 0;
             string name = "";
@@ -67,7 +67,7 @@
             {
                 order = random.Next(1, 5);
                 found = false;
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 4; j++) //Això ens dona una array sense nombres repetits
                 {
                     if (orderTurns[j] == order)
                     {
@@ -133,7 +133,7 @@
             else if (choice == 2)
             {
                 Console.WriteLine(DEF, nameAtacker);
-                return -1;
+                return -1; //Això és perquè el programa sàpiga que s'ha defensat
             }
             else
             {
