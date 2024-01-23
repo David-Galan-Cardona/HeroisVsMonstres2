@@ -140,25 +140,21 @@
                 return hpMonstre;
             }
         }
-        public static double FightMenu(double atkAtacker, string nameAtacker, double hpMonstre, double defMonstre, string monstre, int character)
+        public static double FightMenu(double atkAtacker, string nameAtacker, double hpMonstre, double defMonstre, string monstre)
         {
             const string DMG = "{0} fa {1} punts de dany a {2}", HP = " qui resta amb {0} punts de vida", DEAD = "El monstre ha mort";
             double exceedCheck = hpMonstre - 3 * (atkAtacker - (atkAtacker * defMonstre / 100));
-            if (character == 3)
+            Console.Write(DMG, nameAtacker, 3 * (atkAtacker - (atkAtacker * defMonstre / 100)), monstre);
+            if (exceedCheck > 0)
             {
-                Console.Write(DMG, nameAtacker, 3 * (atkAtacker - (atkAtacker * defMonstre / 100)), monstre);
-                if (exceedCheck > 0)
-                {
-                    Console.WriteLine(HP, hpMonstre - 2 * (atkAtacker - (atkAtacker * defMonstre / 100)));
-                    return exceedCheck;
-                }
-                else
-                {
-                    Console.WriteLine(DEAD);
-                    return 0;
-                }
+                Console.WriteLine(HP, hpMonstre - 2 * (atkAtacker - (atkAtacker * defMonstre / 100)));
+                return exceedCheck;
             }
-            else return 3;
+            else
+            {
+                Console.WriteLine(DEAD);
+                return 0;
+            }
         }
         public static double AttackMonster(double atkMonster, double hpReciever, double defReciever, string nameReciever, string MONSTER, bool def)
         {
@@ -203,7 +199,7 @@
         public static double Heal(double hpHeal, double storedHeal, string nameHeal, int heal)
         {
             const string Restore = "{0} recupera {1} punts de vida";
-            double exceedCheck = storedHeal - (hpHeal + 500);
+            double exceedCheck = storedHeal - (hpHeal + heal);
 
             if (exceedCheck < 0)
             {
