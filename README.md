@@ -31,3 +31,12 @@
 ![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/dd07278d-02ac-45e4-b573-d9e1a20be257)
 
 ![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/d4408e2d-7e21-4013-aac2-3b603f5cca94)
+
+## FightMenu(int, double, string, double, double, string)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/e28fc815-853c-4358-9d06-c891cb08d78a)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/e9f365f7-d2c0-4ac3-bfa2-b7a7906ce0be)
+
+## FightMenu(double, string, double, double, string, int)
+
