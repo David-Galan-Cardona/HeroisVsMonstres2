@@ -13,3 +13,16 @@
 ![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/07df3397-89f4-427d-95e4-76544669fe01)
 
 
+## CheckForCommas(string, int)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/4e3af26a-922d-4a34-8fa5-92b57251b998)
+
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/ce8fdd01-d3dd-4076-8537-e69f60896a2c)
+
+## EmptyOrder
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/dccf6e9e-a71f-4944-b5e9-a2a21cf51b4d)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/2d496a13-cc66-40bf-a9aa-74d6a36bba68)
+
