@@ -40,3 +40,18 @@
 
 ## FightMenu(double, string, double, double, string, int)
 
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/5ba83b36-e265-4920-88e8-f6cb28b215d5)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/bc66d082-b4d2-47ea-8fa7-6bb0d1e3a152)
+
+## AttackMonster
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/686322ab-ae6d-4be2-bce1-cae0b4f20f92)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/bfb88f7b-75ca-433e-b755-caacfb0447ec)
+
+## Heal
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/34275581-341e-492e-b31c-b75877264dd8)
+
+![image](https://github.com/David-Galan-Cardona/HeroisVsMonstres2/assets/147103423/9aed23cf-65f0-417e-84a8-9f6d06f77be4)
