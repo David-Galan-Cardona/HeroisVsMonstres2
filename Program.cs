@@ -516,7 +516,7 @@ namespace M03UF2PR1
                                             else
                                             {
                                                 Console.WriteLine(SPECIALABILITY, nameSorceress);
-                                                HeroisVsMonstreLibrary.FightMenu(atkSorceress, nameSorceress, hpMonster, defMonster, MONSTER, orderTurns[i]);
+                                                hpMonster = HeroisVsMonstreLibrary.FightMenu(atkSorceress, nameSorceress, hpMonster, defMonster, MONSTER);
                                                 cdSorceress = 5;
                                             }
                                         }
